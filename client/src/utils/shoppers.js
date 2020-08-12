@@ -41,10 +41,10 @@ export class Shopper {
    *
    * @param queue the queue object containing info about user's new queue.
    */
-  queueUp = (queue) => {
-    this.currentQueue.push(queue);
-    this.queueHistory.push(queue);
-  };
+  // queueUp = (queue) => {
+  //   this.currentQueue.push(queue);
+  //   this.queueHistory.push(queue);
+  // };
 
   /**
    * This function updates shopper user profile data using given args.
@@ -65,7 +65,7 @@ export class Shopper {
     this.remindTime = remindTime;
     this.favoriteStores = [...favoriteStores];
   };
-  
+
 
 }
 
@@ -77,17 +77,17 @@ export const addToFavorite = (event, selectedStore) => {
   console.log(getShopper(store.get('user')).favoriteStores)
 };
 
-export const removeFavorite = (event,selectedStore) => {
+export const removeFavorite = (event, selectedStore) => {
   event.preventDefault();
   // var list = getShopper(store.get('user')).favoriteStores
-    for (var i = 0; i < getShopper(store.get('user')).favoriteStores.length; i++) {
-        if (getShopper(store.get('user')).favoriteStores[i].id === selectedStore.id) {
-          getShopper(store.get('user')).favoriteStores.splice(i, 1);
-          break;
-        }
+  for (var i = 0; i < getShopper(store.get('user')).favoriteStores.length; i++) {
+    if (getShopper(store.get('user')).favoriteStores[i].id === selectedStore.id) {
+      getShopper(store.get('user')).favoriteStores.splice(i, 1);
+      break;
     }
-    console.log("remove")
-    console.log(getShopper(store.get('user')).favoriteStores)
+  }
+  console.log("remove")
+  console.log(getShopper(store.get('user')).favoriteStores)
 };
 // The array of shopper objects would be replaced by database in phase 2.
 export const shoppers = [

@@ -14,7 +14,7 @@ import { Queue } from '../../utils/queue';
 import { getShopper } from '../../utils/shoppers';
 import BackArrow from '@material-ui/icons/ArrowBackIos';
 import Button from '@material-ui/core/Button';
-
+import { addQueue } from '../../actions/handlequeue'
 
 class StoreDetail extends React.Component {
 
@@ -34,17 +34,19 @@ class StoreDetail extends React.Component {
     event.preventDefault();
 
     const { history, currentUser } = this.props;
-    const newQueue = new Queue(
-      currentUser,
-      selectedStore,
-      this.state.date,
-      this.state.est,
-      this.state.numShoppers,
-      new Date()
-    );
-    selectedStore.addNewQueue(newQueue);
-    getShopper(currentUser).queueUp(newQueue);
-    history.push('/queue');
+    const newQueue = {
+      username: 'user',
+      store: selectedStore.username,
+      date: this.state.date,
+      shopTime: this.state.est,
+      numCustomers: this.state.numShoppers,
+      dateTimeQueued: new Date().toString()
+    };
+    console.log(newQueue)
+    addQueue(newQueue)
+    // selectedStore.addNewQueue(newQueue);
+    // getShopper(currentUser).queueUp(newQueue);
+    // history.push('/queue');
   };
 
 
@@ -54,8 +56,8 @@ class StoreDetail extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar/>
-        <CssBaseline/>
+        <NavBar />
+        <CssBaseline />
 
         <div className={classes.layout}>
           <Paper className={classes.paper}>
@@ -65,19 +67,19 @@ class StoreDetail extends React.Component {
               color="primary"
               onClick={() => history.goBack()}
             >
-              <BackArrow/>Back
+              <BackArrow />Back
             </Button>
 
             <Typography component="h1" variant="h4" align="center">
               {store.name}
             </Typography>
-            <br/>
+            <br />
             <Grid container>
               <Grid item xs={7}>
                 <Typography variant="h6" gutterBottom>
                   Store details
                 </Typography>
-                <StoreDetailList store={store}/>
+                <StoreDetailList store={store} />
               </Grid>
               <Grid item xs={5}>
                 <Typography variant="h6" gutterBottom>

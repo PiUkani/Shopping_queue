@@ -11,9 +11,9 @@ export class Queue {
     this.store = store;
     this.date = date;
     this.shopTime = shopTime;
-    this.numCustomer = numCustomer;
+    this.numCustomers = numCustomer;
     this.dateTimeQueued = dateTimeQueued;
-    this.position = Math.floor(1 + Math.random() * 49);
+    // this.position = Math.floor(1 + Math.random() * 49);
   }
 
   getTimeQueued = () => {

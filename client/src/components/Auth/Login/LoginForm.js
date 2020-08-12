@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
 
   handleLoginSubmit = (event) => {
     event.preventDefault();
-
+    console.log(this)
     login(this, this.props.app)
   }
 
@@ -72,7 +72,7 @@ class LoginForm extends React.Component {
           />
 
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary"/>}
+            control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
 

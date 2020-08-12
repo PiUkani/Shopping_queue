@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import DataDisplay from '../DataDisplay';
 import ProfileEditButtons from '../Profile/ProfileEditButtons';
-
+import { addQueue } from '../../actions/handlequeue'
 
 class QueueDetails extends React.Component {
 
@@ -33,13 +33,17 @@ class QueueDetails extends React.Component {
   handleSave = (event) => {
     event.preventDefault();
 
-    const { booking } = this.props;
+    // const { booking } = this.props;
     this.setEdit(false);
-    booking.updateQueue(
-      this.state.date,
-      this.state.shopTime,
-      this.state.numCustomer
-    );
+    // booking.updateQueue(
+    //   this.state.date,
+    //   this.state.shopTime,
+    //   this.state.numCustomer
+    // );
+    event.preventDefault();
+    console.log(this.props)
+    console.log(this.props.app)
+    addQueue(this.props, this.props.app)
   };
 
   render() {
@@ -96,7 +100,7 @@ class QueueDetails extends React.Component {
               handleFormField={this.handleFormField}
             />
           </Grid>
-          <br/>
+          <br />
 
           <ProfileEditButtons
             edit={this.state.edit}
