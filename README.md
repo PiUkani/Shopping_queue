@@ -2,7 +2,7 @@
  
 ## Description
 As a response to current Covid-19 pandemic, we decided to create a web app
-that helps control the flow of shoppers going to shopping at various store,
+that helps control the flow of shoppers going to shopping at various stores,
 in response to social distancing policies.
 
 Click the following link to see deployed web app: https://shopping-queue.herokuapp.com/ 
